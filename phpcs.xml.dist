@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<ruleset name="FSE Boilerplate Standards">
+    <description>WordPress Coding Standards + PHP Compatibility for multi-blocks boilerplate</description>
+
+    <!-- Check PHP and CSS/SCSS files. JS files are checked with ESLint. -->
+	<arg name="extensions" value="php,css,scss/css"/>
+
+    <!-- Use colors in console -->
+	<arg name="colors"/>
+
+    <!-- Files to scan -->
+    <file>./</file>
+
+    <!-- Standards -->
+    <rule ref="WordPress-Core" />
+    <rule ref="WordPress-Docs" />
+    <rule ref="WordPress-Extra" />
+    <rule ref="PHPCompatibilityWP" />
+    <!-- Text domain check for translation -->
+    <rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+                <!-- Replace value with textdomain -->
+				<element value="multi-blocks-boilerplate"/>
+			</property>
+		</properties>
+	</rule>
+
+    <!-- PHP Compatibility version -->
+    <config name="testVersion" value="7.4-" />
+
+    <!-- Exclusions -->
+    <exclude-pattern>build/*</exclude-pattern>
+    <exclude-pattern>node_modules/*</exclude-pattern>
+    <exclude-pattern>vendor/*</exclude-pattern>
+
+</ruleset>

@@ -1,0 +1,30 @@
+{
+    "name": "multi-blocks-boilerplate",
+    "version": "0.1.0",
+    "description": "Example block scaffolded with Create Block tool.",
+    "author": "The WordPress Contributors",
+    "license": "GPL-2.0-or-later",
+    "main": "build/index.js",
+    "scripts": {
+        "build": "wp-scripts build --blocks-manifest",
+        "format": "wp-scripts format",
+        "lint:css": "wp-scripts lint-style",
+        "lint:js": "wp-scripts lint-js",
+        "packages-update": "wp-scripts packages-update",
+        "plugin-zip": "wp-scripts plugin-zip",
+        "start": "wp-scripts start --blocks-manifest",
+        "setup-plugin": "node ./config/setup-plugin.js",
+        "create-block": "node ./config/create-block.js",
+        "create-block-basic": "cross-env BLOCK_TEMPLATE=block-basic node ./config/create-block.js",
+        "create-block-adv": "cross-env BLOCK_TEMPLATE=block-advanced node ./config/create-block.js"
+    },
+    "devDependencies": {
+        "@wordpress/prettier-config": "^4.21.0",
+        "@wordpress/scripts": "^30.14.1",
+        "cross-env": "^7.0.3",
+        "prettier": "^3.5.3"
+    },
+    "dependencies": {
+        "@inquirer/prompts": "^7.4.1"
+    }
+}

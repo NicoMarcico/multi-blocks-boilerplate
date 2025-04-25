@@ -1,0 +1,24 @@
+/**
+ * Wordpress dependencies
+ */
+import { registerBlockType } from '@wordpress/blocks';
+
+/**
+ * Internal dependencies
+ */
+import './style.scss';
+import Edit from './edit';
+{{#isStaticVariant}}
+import save from './save';
+{{/isStaticVariant}}
+import metadata from './block.json';
+
+/**
+ * Block registration
+ */
+registerBlockType( metadata.name, {
+	edit: Edit,
+    {{#isStaticVariant}}
+	save,
+    {{/isStaticVariant}}
+} );

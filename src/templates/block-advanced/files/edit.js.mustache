@@ -1,0 +1,54 @@
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+import { useBlockProps } from '@wordpress/block-editor';
+
+/**
+ * Internal dependencies
+ */
+import './editor.scss';
+import Toolbar from './toolbar';
+import Settings from './settings';
+import Block from './block';
+
+/**
+ * Block rendering in the editor.
+ *
+ * Here we pass all attributes to components for the example.
+ * In a real block, you would probably only pass the necessary attributes,
+ * using attributes destructuring.
+ *
+ * @param {Object} props Block props.
+ * @returns {Element} Element to render.
+ */
+export default function Edit( props ) {
+	const blockProps = useBlockProps();
+	const { attributes, setAttributes } = props;
+
+	return (
+		<>
+			<Toolbar
+				{ ...{
+					attributes,
+					setAttributes,
+				} }
+			/>
+
+			<Settings
+				{ ...{
+					attributes,
+					setAttributes,
+				} }
+			/>
+
+			<Block
+				{ ...{
+					attributes,
+					setAttributes,
+					blockProps,
+				} }
+			/>
+		</>
+	);
+}

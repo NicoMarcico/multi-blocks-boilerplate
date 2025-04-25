@@ -1,0 +1,25 @@
+{{#isStaticVariant}}
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+import { useBlockProps } from '@wordpress/block-editor';
+
+/**
+ * Final markup of the block, including the attributes.
+ *
+ * @returns {Element} Element to render.
+ */
+export default function save() {
+	const blockProps = useBlockProps.save();
+
+	return (
+		<p { ...blockProps }>
+			{ __(
+				'{{title}} – hello from the static saved content!',
+				'{{textdomain}}'
+			) }
+		</p>
+	);
+}
+{{/isStaticVariant}}

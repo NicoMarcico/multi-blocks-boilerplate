@@ -1,0 +1,26 @@
+{
+    "name": "marcico/multi-blocks-boilerplate",
+    "description": "A minimal boilerplate for developping WordPress Gutenberg blocks.",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "NicoMarcico",
+            "email": "dev@marcico.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3.0",
+        "phpcompatibility/phpcompatibility-wp": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "scripts": {
+        "phpcs": "vendor/bin/phpcs",
+        "phpcbf": "vendor/bin/phpcbf"
+    }
+}

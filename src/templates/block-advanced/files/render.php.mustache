@@ -1,0 +1,18 @@
+{{#isDynamicVariant}}
+<?php
+/**
+ * Dynamic rendering of the block on the front-end.
+ *
+ * Available variables:
+ *  - $attributes (array) Block attributes.
+ *  - $content (string)   Block default content.
+ *  - $block (WP_Block)   Block instance.
+ *
+ * @package {{pluginNamespace}}
+ */
+
+?>
+<p <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
+	<?php esc_html_e( '{{title}} – hello from a dynamic block!', '{{textdomain}}' ); ?>
+</p>
+{{/isDynamicVariant}}

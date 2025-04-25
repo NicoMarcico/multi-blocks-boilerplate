@@ -1,0 +1,23 @@
+/**
+ * WordPress dependencies
+ */
+import { __ } from '@wordpress/i18n';
+
+/**
+ * Block rendering in the editor.
+ *
+ * @param {Object} props Block props, from edit.js.
+ * @returns {Element} Element to render.
+ */
+export default function Block( props ) {
+	const { blockProps } = props;
+
+	return (
+		<p { ...blockProps }>
+			{ __(
+				'{{title}} – hello from the block editor!',
+				'{{textdomain}}'
+			) }
+		</p>
+	);
+}
