@@ -133,16 +133,16 @@ This is how templates use common blocks variables stored in the `./config/plugin
 - `block-basic` is quite similar to @wordpress/create-block default one, with less comments for a better reading.  
 - `block-advanced` is a factored one, including seperated files for the toolbar, settings and block itself.
 
-For both, the `--dynamic` flag is interpreted and files are accordingly generated, with the help of the templates `index.js` file configuration and Mustache.
+For both, the `--variant dynamic` option is interpreted and files are generated accordingly, with the help of the templates `index.js` and Mustache files.
 
 Usage:
 
 ```bash
-# Basic template, default static mode and flags
+# Basic template, default static variant and options
 npm run create-block-basic -- great-block --title "A real great block" --category media
 
-# Advanced template, dynamic mode
-npm run create-block-adv -- more-great-block --dynamic
+# Advanced template, dynamic variant
+npm run create-block-adv -- more-great-block --variant dynamic
 ```
 
 If you modify the `./src/templates` folder path, don't forget to modify the `./config/create-block.js` script accordingly.
