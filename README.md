@@ -1,7 +1,7 @@
 # Multi Blocks Boilerplate
 
 A modern and modular boilerplate for building multiple Gutenberg blocks in one WordPress plugin.  
-Designed to provide an easy starting point for developers building multiple custom blocks using Gutenberg.
+**Configure less, develop more.**
 
 ## 🎯 Objectives
 
@@ -10,10 +10,7 @@ Designed to provide an easy starting point for developers building multiple cust
 - Integrate a modern build workflow.
 - Ensure compliance with WordPress coding standards (PHP, JS, CSS).
 - Facilitate scalability and customization for developers.
-
-> ℹ️ **Note**  
-> This boilerplate is focused on block development.  
-> It is intended to help you get started quickly with creating custom Gutenberg blocks for your WordPress plugins.
+- Save developer time.
 
 ## ✨ Features
 
@@ -57,10 +54,11 @@ To help you, 2 important parts are managed:
 
 Following WordPress standards, you can deploy a plugin in which name, textdomain/slug and namespace are aligned.
 
-Clone the repository and install dependencies:
+Clone the repository inside the plugin directory and install dependencies:
 
 ```bash
-git clone https://github.com/your-username/multi-blocks-boilerplate.git your-plugin-name
+# Inside WordPress plugin directory
+git clone https://github.com/NicoMarcico/multi-blocks-boilerplate.git your-plugin-name
 cd your-plugin-name
 npm install         # Install node dependencies
 composer install    # Install PHP dependencies
@@ -98,11 +96,11 @@ And that's it ! You can start developing blocks 😉.
 
 ### Blocks creation
 
-When developing blocks in the WordPress ecosystem, things can sometimes be redundant, time-consuming and lead to frustration.
+When developing blocks in the WordPress ecosystem, things can sometimes be redundant, time-consuming and frustrating.
 
 #### The base
 
-This plugin ads an overlay on the @wordpress/create-block tool to help you spend less time in the blocks configuration.
+This plugin ads an overlay to the @wordpress/create-block tool to help you spend less time in the blocks configuration.
 
 The script `./config/create-block.js` validates the block name, checks for existing local template, gather your arguments and finaly runs the create-block command with them.  
 
@@ -125,14 +123,17 @@ A `./src/blocks/block-created` folder is created with the block files in it.
 
 #### Templates
 
-2 templates are already present, for use and inspiration.  
-The templates use variables stored in the `./config/plugin.config.js` configuration file.  
-They are modifyed by the `./config/setup-plugin.js script`.
+Templating uses [**Mustache**](https://mustache.github.io/mustache.5.html).  
+This lets us simply use tags to pass variables and build logic in the templates files.
 
-`block-basic` is quite similar to @wordpress/create-block one, with less comments for a better reading.  
-`block-advanced` is a factored one, including seperated files for the toolbar, settings and block itself.
+This is how templates use common blocks variables stored in the `./config/plugin.config.js` configuration file.
 
-For both, the `--dynamic` flag is interpreted and files are accordingly generated.
+2 templates are already present, for use and inspiration:
+
+- `block-basic` is quite similar to @wordpress/create-block default one, with less comments for a better reading.  
+- `block-advanced` is a factored one, including seperated files for the toolbar, settings and block itself.
+
+For both, the `--dynamic` flag is interpreted and files are accordingly generated, with the help of the templates `index.js` file configuration and Mustache.
 
 Usage:
 
@@ -160,7 +161,7 @@ Under the hood, Webpack is configured with Babel and ESLint.
 **JSX** and **SCSS** are respectively transpiled into **JS** and **CSS** during watch and build processes.
 
 ```bash
-npm run start   # Watch for changes to ./src files, automatically rebuild them in ./build.
+npm run start   # Watch for changes to ./src files, automatically rebuild them in ./build on save.
 npm run build   # Build ./src files in the ./build folder for deployment.
 ```
 

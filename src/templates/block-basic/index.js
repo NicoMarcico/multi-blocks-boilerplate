@@ -1,15 +1,16 @@
 /**
+ * Template configuration file.
+ * It uses common blocks variables from the plugin.config.js file.
+ *
+ * Note:
+ * If You used the setup-plugin.js script,
+ * the plugin.config.js file is already updated with your values.
+ */
+
+/**
  * Dependencies
  */
 const { join } = require('path');
-/**
- * Plugin configuration file.
- * The one to change to your plugin and blocks needs,
- * before generating the files.
- *
- * Note:
- * If You used the setup-plugin.js script, the pluginConfig file is already updated with your values.
- */
 const pluginConfig = require('../../../config/plugin.config');
 
 module.exports = {
